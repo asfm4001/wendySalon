@@ -24,6 +24,7 @@ urlpatterns = [
     path('', include('pages.urls')),
     path('news/', include('news.urls')),
     path('portfolio/', include('portfolio.urls')),
+    path('orders/', include('orders.urls')),
     path('base/', include('base.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT, )
 # 靜態檔案上傳僅適合開發環境
