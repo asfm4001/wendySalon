@@ -1,0 +1,12 @@
+<nav class="site-navigation text-right ml-auto d-none d-lg-block" role="navigation">
+    <ul class="site-menu main-menu js-clone-nav ml-auto ">
+      <li class="{% if request.resolver_match.url_name == ''  %}active{% endif %}"><a href="{% url 'pages:index' %}" class="nav-link">Home</a></li>
+      <li class="{% if request.resolver_match.url_name == 'news/index'  %}active{% endif %}"><a href="{% url 'news:index' %}" class="nav-link">News</a></li>
+      <li class="{% if request.resolver_match.url_name == 'portfolio/index'  %}active{% endif %}"><a href="{% url 'portfolio:index' %}" class="nav-link">portfolio</a></li>
+      <!-- <li><a href="services.html" class="nav-link">Services</a></li> -->
+      <!-- <li><a href="barber-shop.html" class="nav-link">Barber Shop</a></li> -->
+      <!-- <li><a href="about.html" class="nav-link">About</a></li> -->
+      <!-- <li><a href="blog.html" class="nav-link">Blog</a></li> -->
+      <!-- <li><a href="contact.html" class="nav-link">Contact</a></li> -->
+    </ul>
+</nav>

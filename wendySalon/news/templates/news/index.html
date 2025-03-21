@@ -1,0 +1,45 @@
+{% extends 'base/base.html' %}
+
+{% block container %}
+<div class="site-section">
+  <div class="container">
+    <div class="row justify-content-center mb-5">
+      <div class="col-md-7 text-center">
+        <h3 class="scissors text-center">News</h3>
+      </div>
+    </div>
+    <div class="row hair-style">
+      <div class="col-2"></div>
+      <div class="col-8">
+        <div class="list-group">
+            <a href="#" class="list-group-item list-group-item-action">
+                <span class="badge badge-primary badge-pill">Hot</span>
+                Demo, no links
+            </a>
+            <a href="#" class="list-group-item list-group-item-action">
+                <span class="badge badge-secondary badge-pill">結束</span>
+                Demo, no links
+            </a>
+            <a href="#" class="list-group-item list-group-item-action">
+                <span class="badge badge-warning badge-pill">注意</span>
+                Demo, no links
+            </a>
+            {% for post in latest_post_list %}
+            <a href="{% url 'news:detail' post.id %}" class="list-group-item list-group-item-action">
+                <span class="badge badge-primary badge-pill">Hot</span>
+                {{ post.title }} - {{ post.published_date.date }}
+            </a>
+            {% endfor %}
+        </div>
+      </div>
+      <!-- Pagination -->
+      <div class="col-12 mt-5 text-center">
+        <span class="p-3">1</span>
+        <a href="#" class="p-3">2</a>
+        <a href="#" class="p-3">3</a>
+        <a href="#" class="p-3">4</a>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock%}
