@@ -32,6 +32,8 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'rest_framework',   # model -> json
+    'api_v1.apps.ApiV1Config',
     'orders.apps.OrdersConfig',
     'portfolio.apps.PortfolioConfig',
     'pages.apps.PagesConfig',

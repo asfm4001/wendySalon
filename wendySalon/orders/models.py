@@ -13,3 +13,19 @@ class Order(models.Model):
     # )
     def __str__(self):
         return self.client_name
+    def to_envnt(self):
+        match self.appointment_no:
+            case '1':
+                event_teitle = '第一時段已額滿'
+            case '2':
+                event_teitle = '第二時段已額滿'
+            case '3':
+                event_teitle = '第三時段已額滿'
+        event = Event(title=event_teitle, start=self.order_date)
+        return event
+    
+class Event(models.Model):
+    title = models.CharField(max_length=20)
+    start = models.DateField()
+    def __str__(self):
+        return self.id
