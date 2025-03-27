@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from orders.models import Order
+from orders.models import Order, Event
 from django.utils import timezone
 
 class OrderSerializer(serializers.ModelSerializer):
@@ -7,3 +7,9 @@ class OrderSerializer(serializers.ModelSerializer):
         model = Order
         fields = '__all__'    # 選取所有column
         # fields = ('id', 'client_name', 'order_date', 'appointment_no')
+
+class EventSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Event
+        # fields = '__all__'
+        fields = ('title', 'start')

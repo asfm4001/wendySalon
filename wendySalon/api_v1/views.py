@@ -3,7 +3,7 @@ from django.shortcuts import render
 # Create your views here.
 from rest_framework import viewsets
 from orders.models import Order
-from .serializers import OrderSerializer
+from .serializers import OrderSerializer, EventSerializer
 # class OrderViewSets(viewsets.ModelViewSet):
 #     queryset = Order.objects.all()
 #     serializer_class = OrderSerializer
@@ -12,11 +12,17 @@ from .serializers import OrderSerializer
 #         return queryset
 from rest_framework.generics import GenericAPIView
 from django.http import JsonResponse
-class OrderViewSets(GenericAPIView):
-    queryset = Order.objects.all()
-    serializer_class = OrderSerializer
+from django.utils import timezone
+class OrderToEventViewSets(GenericAPIView):
+    events = []
+    for order in Order.objects.all():
+        if order.order_date >= timezone.now().date():
+            events.append(order.to_event())
+        
+    queryset = events
+    serializer_class = EventSerializer
     def get(self, request, *args, **krgs):
-        orders = self.get_queryset()
-        serializer = self.serializer_class(orders, many=True)
+        events = self.get_queryset()
+        serializer = self.serializer_class(events, many=True)
         data = serializer.data
         return JsonResponse(data, safe=False)

@@ -13,7 +13,7 @@ class Order(models.Model):
     # )
     def __str__(self):
         return self.client_name
-    def to_envnt(self):
+    def to_event(self):
         match self.appointment_no:
             case '1':
                 event_teitle = '第一時段已額滿'
@@ -21,6 +21,8 @@ class Order(models.Model):
                 event_teitle = '第二時段已額滿'
             case '3':
                 event_teitle = '第三時段已額滿'
+            case _:
+                event_teitle = 'Order.appointment Value Error'
         event = Event(title=event_teitle, start=self.order_date)
         return event
     
