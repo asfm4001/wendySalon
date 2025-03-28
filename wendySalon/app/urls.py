@@ -27,5 +27,6 @@ urlpatterns = [
     path('portfolio/', include('portfolio.urls')),
     path('orders/', include('orders.urls')),
     path('base/', include('base.urls')),
+    path('swagger/', include('swagger.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT, )
 # 靜態檔案上傳僅適合開發環境

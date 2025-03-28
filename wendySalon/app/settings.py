@@ -32,6 +32,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'drf_yasg',         # Swagger
     'rest_framework',   # model -> json
     'api_v1.apps.ApiV1Config',
     'orders.apps.OrdersConfig',

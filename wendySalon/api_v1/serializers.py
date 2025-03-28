@@ -1,6 +1,5 @@
 from rest_framework import serializers
 from orders.models import Order, Event
-from django.utils import timezone
 
 class OrderSerializer(serializers.ModelSerializer):
     class Meta:
